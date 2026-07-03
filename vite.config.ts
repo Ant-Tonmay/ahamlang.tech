@@ -38,5 +38,6 @@ function artifactsPlugin(): Plugin {
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/aham/',   
   plugins: [react(), artifactsPlugin()],
 })

@@ -1,27 +1,18 @@
-import { useState, type ReactNode } from 'react'
 import { Layout } from './components/Layout'
-import type { PageId } from './components/Sidebar'
 import { Home } from './pages/Home'
 import { Download } from './pages/Download'
 import { Docs } from './pages/Docs'
 // import { Examples } from './pages/Examples'
 import { About } from './pages/About'
 import { Community } from './pages/Community'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// const pages: Record<PageId, ReactNode> = {
-//   home: <Home />,
-//   download: <Download />,
-//   docs: <Docs />,
-//   examples: <Examples />,
-//   about: <About />,
-//   community: <Community />,
-// }
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 function App() {
-  //const [activePage, setActivePage] = useState<PageId>('home')
 
   return (
-      <BrowserRouter>
+      <HashRouter>
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -30,9 +21,10 @@ function App() {
             {/*<Route path="/examples" element={<Examples />} />*/}
             <Route path="/about" element={<About />} />
             <Route path="/community" element={<Community />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Layout>
-      </BrowserRouter>
+      </HashRouter>
     );
 }
 
