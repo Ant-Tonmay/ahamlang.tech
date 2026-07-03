@@ -1,10 +1,19 @@
 import './Page.css'
 
 const links = [
-  { label: 'GitHub', description: 'Source code, issues, and pull requests' },
-  { label: 'Discord', description: 'Chat with the community' },
-  { label: 'Forum', description: 'Long-form discussions and help' },
-  { label: 'Blog', description: 'Release notes and language updates' },
+  {
+    label: 'GitHub', description: 'Source code, issues, and pull requests',
+    url: 'https://github.com/Ant-Tonmay/aham',
+  },
+  {
+    label: 'Discord', description: 'Chat with the community',
+    url: 'https://discord.gg/hBvXEP5tK',
+  },
+  {
+    label: 'Forum', description: 'Long-form discussions and help',
+    url: 'https://github.com/Ant-Tonmay/aham/discussions/',
+  },
+
 ]
 
 export function Community() {
@@ -18,7 +27,7 @@ export function Community() {
       <section className="page-section">
         <div className="community-list">
           {links.map((link) => (
-            <a key={link.label} href="#" className="community-row">
+            <a key={link.label} href={link.url} className="community-row">
               <span className="community-label">{link.label}</span>
               <span className="community-desc">{link.description}</span>
             </a>
