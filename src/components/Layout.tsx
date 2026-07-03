@@ -1,17 +1,15 @@
 import type { ReactNode } from 'react'
-import { Sidebar, type PageId } from './Sidebar'
+import { Sidebar } from './Sidebar'
 import './Layout.css'
 
 interface LayoutProps {
-  activePage: PageId
-  onNavigate: (page: PageId) => void
   children: ReactNode
 }
 
-export function Layout({ activePage, onNavigate, children }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   return (
     <div className="layout">
-      <Sidebar activePage={activePage} onNavigate={onNavigate} />
+      <Sidebar />
       <main className="main-content">{children}</main>
     </div>
   )

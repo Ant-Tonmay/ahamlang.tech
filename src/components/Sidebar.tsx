@@ -1,46 +1,25 @@
+import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
-export type PageId =
-  | 'home'
-  | 'download'
-  | 'docs'
-  | 'examples'
-  | 'about'
-  | 'community'
-
-interface NavItem {
-  id: PageId
-  label: string
-}
-
-const mainNav: NavItem[] = [
-  { id: 'home', label: 'Home' },
-  { id: 'download', label: 'Download' },
-  { id: 'docs', label: 'Docs' },
-  { id: 'examples', label: 'Examples' },
+const mainNav = [
+  { path: '/', label: 'Home', end: true },
+  { path: '/download', label: 'Download' },
+  { path: '/docs', label: 'Docs' },
+  //{ path: '/examples', label: 'Examples' },
 ]
 
-const secondaryNav: NavItem[] = [
-  { id: 'about', label: 'About' },
-  { id: 'community', label: 'Community' },
+const secondaryNav = [
+  { path: '/about', label: 'About' },
+  { path: '/community', label: 'Community' },
 ]
 
-interface SidebarProps {
-  activePage: PageId
-  onNavigate: (page: PageId) => void
-}
-
-export function Sidebar({ activePage, onNavigate }: SidebarProps) {
+export function Sidebar() {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
-        <button
-          type="button"
-          className="sidebar-logo"
-          onClick={() => onNavigate('home')}
-        >
+        <NavLink to="/" end className="sidebar-logo">
           aham
-        </button>
+        </NavLink>
         <span className="sidebar-tag">lang</span>
       </div>
 
@@ -48,14 +27,16 @@ export function Sidebar({ activePage, onNavigate }: SidebarProps) {
         <p className="nav-section-label">Menu</p>
         <ul className="nav-list">
           {mainNav.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                className={`nav-item ${activePage === item.id ? 'active' : ''}`}
-                onClick={() => onNavigate(item.id)}
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                end={item.end}
+                className={({ isActive }) =>
+                  `nav-item ${isActive ? 'active' : ''}`
+                }
               >
                 {item.label}
-              </button>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -63,14 +44,15 @@ export function Sidebar({ activePage, onNavigate }: SidebarProps) {
         <p className="nav-section-label">More</p>
         <ul className="nav-list">
           {secondaryNav.map((item) => (
-            <li key={item.id}>
-              <button
-                type="button"
-                className={`nav-item ${activePage === item.id ? 'active' : ''}`}
-                onClick={() => onNavigate(item.id)}
+            <li key={item.path}>
+              <NavLink
+                to={item.path}
+                className={({ isActive }) =>
+                  `nav-item ${isActive ? 'active' : ''}`
+                }
               >
                 {item.label}
-              </button>
+              </NavLink>
             </li>
           ))}
         </ul>

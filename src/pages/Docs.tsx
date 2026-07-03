@@ -74,20 +74,19 @@ export function Docs() {
       <section className="page-section">
         <h2>Quick reference</h2>
         <pre>
-          <code>{`// variable
-let x: int = 42
+          <code>{`
+{
+    func fib(n) {
+        if (n == 0 || n == 1) { return n; }
+        return fib(n - 1) + fib(n - 2);
+    }
 
-// function
-fn add(a: int, b: int) -> int {
-    return a + b
+    func main() {
+        println(fib(10));
+    }
 }
 
-// conditional
-if x > 0 {
-    print("positive")
-} else {
-    print("non-positive")
-}`}</code>
+            `}</code>
         </pre>
       </section>
     </article>
