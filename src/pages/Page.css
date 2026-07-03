@@ -84,12 +84,14 @@
 }
 
 .btn {
+  display: inline-block;
   padding: 0.4rem 1rem;
   font-size: 0.85rem;
   color: var(--text);
   background: var(--bg-hover);
   border: 1px solid var(--border);
   border-radius: 4px;
+  text-decoration: none;
   transition: background 0.15s, color 0.15s;
 }
 

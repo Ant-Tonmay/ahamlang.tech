@@ -1,43 +1,44 @@
+import { downloadPlatforms } from '../downloads/registry'
 import './Page.css'
-
-const platforms = [
-  { name: 'Linux x64', file: 'aham-linux-x64.tar.gz', size: '12 MB' },
-  { name: 'macOS ARM', file: 'aham-macos-arm64.tar.gz', size: '11 MB' },
-  { name: 'macOS x64', file: 'aham-macos-x64.tar.gz', size: '12 MB' },
-  { name: 'Windows x64', file: 'aham-windows-x64.zip', size: '13 MB' },
-]
 
 export function Download() {
   return (
     <article className="page">
       <header className="page-header">
         <h1>Download</h1>
-        <p className="lead">Get the latest release of the Aham compiler and runtime.</p>
+        <p className="lead">Get Aham 1.0.0 — the compiler and runtime for your platform.</p>
       </header>
 
-      <section className="page-section">
-        <div className="download-list">
-          {platforms.map((platform) => (
-            <div key={platform.name} className="download-row">
-              <div>
-                <span className="download-name">{platform.name}</span>
-                <span className="download-meta">{platform.file}</span>
+      {downloadPlatforms.map((platform) => (
+        <section key={platform.title} className="page-section">
+          <h2>{platform.title}</h2>
+          <div className="download-list">
+            {platform.downloads.map((entry) => (
+              <div key={entry.id} className="download-row">
+                <div>
+                  <span className="download-name">{entry.name}</span>
+                  <span className="download-meta">{entry.description}</span>
+                </div>
+                <div className="download-actions">
+                  <span className="download-size">{entry.size}</span>
+                  <a href={entry.path} download={entry.file} className="btn">
+                    Download
+                  </a>
+                </div>
               </div>
-              <div className="download-actions">
-                <span className="download-size">{platform.size}</span>
-                <button type="button" className="btn">Download</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      ))}
 
       <section className="page-section">
         <h2>Install from source</h2>
         <pre>
-          <code>{`git clone https://github.com/Ant-Tonmay/aham
-cd aham
-make install`}</code>
+          <code>{`$ git clone https://github.com/Ant-Tonmay/aham.git
+$ cd aham
+$ cmake -S . -B build
+$ cd build
+$ make`}</code>
         </pre>
       </section>
 
