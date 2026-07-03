@@ -4,12 +4,16 @@ import type { PageId } from './components/Sidebar'
 import { Home } from './pages/Home'
 import { Download } from './pages/Download'
 import { Docs } from './pages/Docs'
+// import { Examples } from './pages/Examples'
+import { About } from './pages/About'
 import { Community } from './pages/Community'
 
 const pages: Record<PageId, ReactNode> = {
   home: <Home />,
   download: <Download />,
   docs: <Docs />,
+  // examples: <Examples />,
+  about: <About />,
   community: <Community />,
 }
 
