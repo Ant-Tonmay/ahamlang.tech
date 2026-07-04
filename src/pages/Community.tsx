@@ -19,6 +19,8 @@ const links = [
   },
 ];
 
+/* seo */
+
 export function Community() {
   return (
     <>

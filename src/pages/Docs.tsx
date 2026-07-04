@@ -41,8 +41,11 @@ export function Docs() {
     );
   }
 
+  /* seo */
+  
   return (
     <>
+
       <Helmet>
         <title>Documentation | Aham Programming Language</title>
 

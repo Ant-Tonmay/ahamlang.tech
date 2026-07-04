@@ -1,6 +1,9 @@
 import './Page.css'
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+
+/* seo */
+
 export function Home() {
   return (
     <>

@@ -1,6 +1,8 @@
 import "./Page.css";
 import { Helmet } from "react-helmet-async";
 
+/* seo */
+
 export function About() {
   return (
     <>

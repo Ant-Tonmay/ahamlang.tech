@@ -1,9 +1,13 @@
 import { downloadPlatforms } from "../downloads/registry";
 import "./Page.css";
 import { Helmet } from "react-helmet-async";
+
+/* seo */
+
 export function Download() {
   return (
     <>
+      
       <Helmet>
         <title>Download | Aham Programming Language</title>
 
