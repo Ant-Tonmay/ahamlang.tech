@@ -41,6 +41,32 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify Pages files
+        run: |
+          echo "===== dist ====="
+          ls -R dist
+
+          echo "===== Assets ====="
+          ls -l dist/assets
+
+          echo "===== Artifacts ====="
+          ls -R dist/artifacts
+
+          echo "===== Checking required files ====="
+          test -f dist/index.html
+          test -f dist/CNAME
+          test -f dist/robots.txt
+          test -f dist/sitemap.xml
+          test -f vite.config.ts
+
+          echo "===== Checking for old paths ====="
+          if grep -R "/ahamlang.tech/artifacts" dist; then
+            echo "❌ Old paths found!"
+            exit 1
+          else
+            echo "✅ Paths are correct"
+          fi
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
