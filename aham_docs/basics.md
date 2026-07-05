@@ -397,5 +397,114 @@ Output:
 10 + 20 = 30
 ```
 
+## Input and Type Casting
 
+### Reading Input
 
+Aham provides the `readline()` function to read a complete line of input from the console. The function always returns a value of type `string`.
+
+#### Example
+
+```aha
+{
+    func main() {
+        print("Enter your name: ");
+        name = readline();
+
+        println("Hello, " + name);
+    }
+}
+```
+
+**Output**
+
+```text
+Enter your name: Alice
+Hello, Alice
+```
+
+---
+
+#### Reading Numbers
+
+Since `readline()` returns a string, numeric input must be converted to the required type using explicit type casting.
+
+```aha
+{
+    func main() {
+        print("Enter first number: ");
+        a = int(readline());
+
+        print("Enter second number: ");
+        b = int(readline());
+
+        println(a + b);
+    }
+}
+```
+
+**Output**
+
+```text
+Enter first number: 10
+Enter second number: 20
+30
+```
+
+---
+
+### Type Casting
+
+Aham supports explicit type conversion using constructor-style syntax.
+
+```aha
+value = TargetType(expression);
+```
+
+#### Examples
+
+```aha
+b = "42";
+
+c = int(b);          // String → Integer
+d = char(65);        // Integer → Character ('A')
+e = string(10);      // Integer → String
+
+println(c);
+println(d);
+println(e);
+```
+
+### Common Conversions
+
+| Conversion               | Example       |
+| ------------------------ | ------------- |
+| String → Integer         | `int("123")`  |
+| Integer → String         | `string(123)` |
+| Integer → Character      | `char(65)`    |
+| Character → Integer      | `int('A')`    |
+---
+
+## Checking Types
+
+The `type()` function returns the runtime type of a value.
+
+```aha
+{
+    func main() {
+        a = int(readline());
+        b = string(100);
+
+        println(type(a));
+        println(type(b));
+    }
+}
+```
+
+Example output:
+
+```text
+int
+string
+```
+___
