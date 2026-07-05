@@ -51,7 +51,8 @@ export function Download() {
         <section className="page-section">
           <h2>Install from source</h2>
           <pre>
-            <code>{`$ git clone https://github.com/Ant-Tonmay/aham.git
+            <code>{`
+  $ git clone https://github.com/Ant-Tonmay/aham.git
   $ cd aham
   $ cmake -S . -B build
   $ cd build
