@@ -5,7 +5,7 @@ const links = [
   {
     label: "GitHub",
     description: "Source code, issues, and pull requests",
-    url: "https://github.com/Ant-Tonmay/aham",
+    url: "https://github.com/aham-lang/aham",
   },
   {
     label: "Discord",
@@ -15,7 +15,7 @@ const links = [
   {
     label: "Forum",
     description: "Long-form discussions and help",
-    url: "https://github.com/Ant-Tonmay/aham/discussions/",
+    url: "https://github.com/aham-lang/aham/discussions/",
   },
 ];
 
